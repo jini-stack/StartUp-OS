@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Charter Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .section h2 {
+            color: #2d3748;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        .help-text {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+            color: #4a5568;
+        }
+
+        .example {
+            background: #edf2f7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-style: italic;
+            color: #2d3748;
+        }
+
+        .example strong {
+            color: #667eea;
+            font-style: normal;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.05em;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            line-height: 1.6;
+        }
+
+        textarea.large {
+            min-height: 150px;
+        }
+
+        .value-inputs {
+            display: grid;
+            gap: 15px;
+        }
+
+        .value-item {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .objective-item {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .tip {
+            background: #fff5e6;
+            border-left: 4px solid #ffa500;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .tip strong {
+            color: #ff8c00;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .buttons {
+                display: none;
+            }
+
+            .help-text, .tip {
+                break-inside: avoid;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            button {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Startup Charter</h1>
+            <p>Define your mission, vision, and core values</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🏢</div>
+                    <h2>Company Information</h2>
+                </div>
+                <label for="companyName">Company Name</label>
+                <input type="text" id="companyName" placeholder="Enter your company name">
+
+                <label for="foundingDate">Founding Date</label>
+                <input type="text" id="foundingDate" placeholder="e.g., November 2025">
+
+                <label for="founders">Founders</label>
+                <input type="text" id="founders" placeholder="List founder names">
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🎯</div>
+                    <h2>Mission Statement</h2>
+                </div>
+                <div class="help-text">
+                    <strong>What is a mission statement?</strong> Your mission defines your company's purpose and why you exist today. It should be clear, concise, and actionable.
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> "To organize the world's information and make it universally accessible and useful." - Google
+                </div>
+                <label for="mission">Our Mission</label>
+                <textarea id="mission" class="large" placeholder="Describe what your company does and why it matters..."></textarea>
+                <div class="tip">
+                    <strong>Tip:</strong> Keep it to 1-2 sentences. Focus on the problem you solve and who you serve.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🔭</div>
+                    <h2>Vision Statement</h2>
+                </div>
+                <div class="help-text">
+                    <strong>What is a vision statement?</strong> Your vision describes the future you want to create. It's aspirational and describes where you're headed in 5-10 years.
+                </div>
+                <div class="example">
+                    <strong>Example:</strong> "To be Earth's most customer-centric company, where customers can find and discover anything they might want to buy online." - Amazon
+                </div>
+                <label for="vision">Our Vision</label>
+                <textarea id="vision" class="large" placeholder="Describe the future impact you want to create..."></textarea>
+                <div class="tip">
+                    <strong>Tip:</strong> Think big and inspirational. What does success look like?
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">⭐</div>
+                    <h2>Core Values</h2>
+                </div>
+                <div class="help-text">
+                    <strong>What are core values?</strong> These are the fundamental beliefs and principles that guide your company's decisions, culture, and behavior. Aim for 3-5 values.
+                </div>
+                <div class="value-inputs">
+                    <div class="value-item">
+                        <label for="value1">Core Value #1</label>
+                        <input type="text" id="value1" placeholder="e.g., Customer First">
+                        <label for="value1desc">Description</label>
+                        <textarea id="value1desc" placeholder="Explain what this value means in practice..."></textarea>
+                    </div>
+                    <div class="value-item">
+                        <label for="value2">Core Value #2</label>
+                        <input type="text" id="value2" placeholder="e.g., Innovation & Creativity">
+                        <label for="value2desc">Description</label>
+                        <textarea id="value2desc" placeholder="Explain what this value means in practice..."></textarea>
+                    </div>
+                    <div class="value-item">
+                        <label for="value3">Core Value #3</label>
+                        <input type="text" id="value3" placeholder="e.g., Integrity & Transparency">
+                        <label for="value3desc">Description</label>
+                        <textarea id="value3desc" placeholder="Explain what this value means in practice..."></textarea>
+                    </div>
+                    <div class="value-item">
+                        <label for="value4">Core Value #4 (Optional)</label>
+                        <input type="text" id="value4" placeholder="e.g., Collaboration">
+                        <label for="value4desc">Description</label>
+                        <textarea id="value4desc" placeholder="Explain what this value means in practice..."></textarea>
+                    </div>
+                    <div class="value-item">
+                        <label for="value5">Core Value #5 (Optional)</label>
+                        <input type="text" id="value5" placeholder="e.g., Continuous Learning">
+                        <label for="value5desc">Description</label>
+                        <textarea id="value5desc" placeholder="Explain what this value means in practice..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">👥</div>
+                    <h2>Target Market</h2>
+                </div>
+                <div class="help-text">
+                    <strong>Who are your customers?</strong> Define your ideal customer profile and the market segments you serve.
+                </div>
+                <label for="targetCustomer">Primary Customer Segment</label>
+                <textarea id="targetCustomer" placeholder="Describe your ideal customer (demographics, needs, pain points)..."></textarea>
+
+                <label for="marketSize">Market Opportunity</label>
+                <textarea id="marketSize" placeholder="Describe the market size and growth potential..."></textarea>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">🎪</div>
+                    <h2>Unique Value Proposition</h2>
+                </div>
+                <div class="help-text">
+                    <strong>What makes you different?</strong> Explain what sets you apart from competitors and why customers should choose you.
+                </div>
+                <label for="valueProposition">Our Unique Value</label>
+                <textarea id="valueProposition" class="large" placeholder="What problem do you solve better than anyone else?"></textarea>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon">📊</div>
+                    <h2>Key Objectives (Next 12 Months)</h2>
+                </div>
+                <div class="help-text">
+                    <strong>What are your goals?</strong> Define 3-5 measurable objectives for the coming year.
+                </div>
+                <div class="objective-item">
+                    <label for="objective1">Objective #1</label>
+                    <input type="text" id="objective1" placeholder="e.g., Reach 10,000 active users">
+                    <label for="objective1metric">Success Metric</label>
+                    <input type="text" id="objective1metric" placeholder="How will you measure success?">
+                </div>
+                <div class="objective-item">
+                    <label for="objective2">Objective #2</label>
+                    <input type="text" id="objective2" placeholder="e.g., Achieve $500K in revenue">
+                    <label for="objective2metric">Success Metric</label>
+                    <input type="text" id="objective2metric" placeholder="How will you measure success?">
+                </div>
+                <div class="objective-item">
+                    <label for="objective3">Objective #3</label>
+                    <input type="text" id="objective3" placeholder="e.g., Launch in 3 new markets">
+                    <label for="objective3metric">Success Metric</label>
+                    <input type="text" id="objective3metric" placeholder="How will you measure success?">
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-primary" onclick="exportToPDF()">📄 Export to PDF</button>
+                <button class="btn-secondary" onclick="clearForm()">🔄 Clear Form</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function exportToPDF() {
+            const companyName = document.getElementById('companyName').value || 'Startup Charter';
+            document.title = companyName + ' - Startup Charter';
+            window.print();
+        }
+
+        function clearForm() {
+            if (confirm('Are you sure you want to clear all fields? This cannot be undone.')) {
+                const inputs = document.querySelectorAll('input[type="text"], textarea');
+                inputs.forEach(input => input.value = '');
+            }
+        }
+
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            const savedValue = localStorage.getItem(input.id);
+            if (savedValue) {
+                input.value = savedValue;
+            }
+
+            input.addEventListener('input', (e) => {
+                localStorage.setItem(e.target.id, e.target.value);
+            });
+        });
+    </script>
+</body>
+</html>
